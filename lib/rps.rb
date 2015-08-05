@@ -1,11 +1,20 @@
 class String
   define_method(:rps) do
-    player_one_choice = self.upcase!()
-    player_two_choice = player_one_choice
 
     rock = "ROCK"
     paper = "PAPER"
     scissors = "SCISSORS"
+
+    player_one_choice = self.upcase!()
+    play_two_number = rand(3)
+
+    if play_two_number == 0
+      player_two_choice = paper
+    elsif play_two_number == 1
+      player_two_choice = rock
+    else
+      player_two_choice = scissors
+    end
 
     if player_one_choice == player_two_choice
       return "Tie"
