@@ -5,7 +5,7 @@ class String
     paper = "PAPER"
     scissors = "SCISSORS"
 
-    player_one_choice = self.upcase!()
+    player_one_choice = self
     play_two_number = rand(3)
 
     if play_two_number == 0
@@ -15,6 +15,8 @@ class String
     else
       player_two_choice = scissors
     end
+
+    puts(player_two_choice)
 
     if player_one_choice == player_two_choice
       return "Tie"
