@@ -1,13 +1,15 @@
 require('capybara/rspec')
 require('./app')
+require('launchy')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
-describe('the scrabble path', {:type => :feature}) do
-  it('processes the user entry and returns the point value') do
+describe('the rock paper scissors', {:type => :feature}) do
+  it('plays a game of rock paper scissors') do
     visit('/')
-    fill_in('word', :with => 'CACTUS')
-    click_button('Send')
-    expect(page).to have_content(10)
+    # choose('player', :with => 'ROCK')
+    save_and_open_page
+    click_button('Submit')
+    expect(page).to have_content("Player One Wins" || "Player Two Wins" || "Tie")
   end
 end
